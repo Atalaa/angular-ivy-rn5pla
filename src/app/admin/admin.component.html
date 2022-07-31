@@ -1,0 +1,15 @@
+<h1>List users</h1>
+
+<app-user-form (submitted)="addUser($event)"></app-user-form>
+
+<app-user-list [users]="users"></app-user-list>
+
+<!-- application planning
+
+  <app-admin> orchestre tout
+    <app-user-form (submit)="user"></app-user-form> dumb component meme avec boutton valider
+    <app-user-list [resultList]=""></app-user-list> dumb component affiche liste
+  </app-admin>
+
+
+ -->
