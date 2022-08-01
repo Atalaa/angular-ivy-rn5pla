@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../services/user.model';
 import { UserService } from '../services/user.service';
-import { IUserUserForm } from './user-form/user-form.component';
+import { IUserForm } from './user-form/user-form.component';
 
 @Component({
   selector: 'app-admin',
@@ -14,8 +14,9 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {}
 
-  addUser(user: IUserUserForm) {
+  addUser(user: IUserForm): void {
     this.userService.add(user.firstName, user.lastName);
+    //mets a jour ma liste locale users
     this.users = this.userService.getList();
   }
 }

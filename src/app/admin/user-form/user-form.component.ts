@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
-export interface IUserUserForm {
+export interface IUserForm {
   firstName: string;
   lastName: string;
 }
@@ -11,8 +11,7 @@ export interface IUserUserForm {
   styleUrls: ['./user-form.component.css'],
 })
 export class UserFormComponent implements OnInit {
-  @Output() submitted: EventEmitter<IUserUserForm> =
-    new EventEmitter<IUserUserForm>();
+  @Output() submitted: EventEmitter<IUserForm> = new EventEmitter<IUserForm>();
   firstName = '';
   lastName = '';
 
@@ -25,5 +24,8 @@ export class UserFormComponent implements OnInit {
       firstName: this.firstName,
       lastName: this.lastName,
     });
+
+    this.firstName = '';
+    this.lastName = '';
   }
 }
