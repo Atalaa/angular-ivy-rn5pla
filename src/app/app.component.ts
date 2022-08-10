@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, VERSION } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'my-app',
@@ -11,14 +12,16 @@ export class AppComponent {
 
   constructor(private httpClient: HttpClient) {
     /*Promises
-    fetch('http://localhost:3000/posts/2')
+    const fetchAuthor = fetch('http://localhost:3000/posts/2');
+    fetchAuthor
       .then((response) => response.json())
       .then((data) => (this.name = data.author));
     */
 
     //Angular way
-    httpClient
-      .get<any>('http://localhost:3000/posts/2')
-      .subscribe((data) => (this.name = data.author));
+    const author$: Observable<any> = this.httpClient.get<any>(
+      'http://localhost:3000/posts/2'
+    );
+    author$.subscribe((data) => (this.name = data.author));
   }
 }
