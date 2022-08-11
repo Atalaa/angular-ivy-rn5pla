@@ -10,6 +10,7 @@ import { IUserForm } from './user-form/user-form.component';
 })
 export class AdminComponent implements OnInit {
   users: User[] = [];
+  timer: number;
 
   constructor(private userService: UserService) {}
 
