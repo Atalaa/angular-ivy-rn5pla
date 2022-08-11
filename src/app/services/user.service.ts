@@ -8,12 +8,19 @@ import { User } from './user.model';
   providedIn: 'root',
 })
 export class UserService {
-  firstName: string = '';
-  lastName: string = '';
-
   constructor(private httpClient: HttpClient) {}
 
-  add(firstName: string, lastName: string) {}
+  add(firstName: string, lastName: string): Observable<void> {
+    const user$: Observable<void> = this.httpClient.post<void>(
+      'http://localhost:3000/users',
+      {
+        id: null,
+        firstName,
+        lastName,
+      }
+    );
+    return user$;
+  }
 
   //return whole array
   getList(): Observable<User[]> {

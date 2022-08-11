@@ -11,7 +11,19 @@ import { IUserForm } from './user-form/user-form.component';
 export class AdminComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.refreshList();
+  }
+
+  addUser(user: IUserForm): void {
+    this.userService.add(user.firstName, user.lastName).subscribe(() => {
+      this.refreshList();
+    });
+  }
+
+  refreshList() {
     this.userService.getList().subscribe({
       next: (userss: User[]) => {
         console.log(userss);
@@ -24,14 +36,6 @@ export class AdminComponent implements OnInit {
         console.log('Completed');
       },
     });
-  }
-
-  ngOnInit() {}
-
-  addUser(user: IUserForm): void {
-    this.userService.add(user.firstName, user.lastName);
-    //mets a jour ma liste locale users
-    // this.users = this.userService.getList();
   }
 }
 
