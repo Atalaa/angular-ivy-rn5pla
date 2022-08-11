@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from './user.model';
 
 @Injectable({
@@ -6,16 +8,19 @@ import { User } from './user.model';
   providedIn: 'root',
 })
 export class UserService {
-  users: User[] = [];
-  add(firstName: string, lastName: string) {
-    this.users.push({
-      firstName,
-      lastName,
-    });
-  }
+  firstName: string = '';
+  lastName: string = '';
 
-  getList() {
-    return [...this.users];
+  constructor(private httpClient: HttpClient) {}
+
+  add(firstName: string, lastName: string) {}
+
+  //return whole array
+  getList(): Observable<User[]> {
+    const users$: Observable<User[]> = this.httpClient.get<User[]>(
+      'http://localhost:3000/users'
+    );
+    // throw new Error('This is an error getList');
+    return users$;
   }
-  constructor() {}
 }
