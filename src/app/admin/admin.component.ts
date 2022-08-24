@@ -1,4 +1,5 @@
 import { Component, OnInit, VERSION } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
 import { User } from '../services/user.model';
 import { UserService } from '../services/user.service';
 import { IUserForm } from './user-form/user-form.component';
@@ -14,29 +15,24 @@ export class AdminComponent implements OnInit {
 
   constructor(private userService: UserService) {}
 
-  ngOnInit() {
-    this.refreshList();
-  }
+  ngOnInit() {}
 
   addUser(user: IUserForm): void {
-    this.userService.add(user.firstName, user.lastName).subscribe(() => {
-      this.refreshList();
-    });
-  }
-
-  refreshList() {
-    this.userService.getList().subscribe({
-      next: (userss: User[]) => {
-        console.log(userss);
-        this.users = userss;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-      complete: () => {
-        console.log('Completed');
-      },
-    });
+    this.userService
+      .add(user.firstName, user.lastName)
+      .pipe(switchMap(() => this.userService.getList()))
+      .subscribe({
+        next: (userss: User[]) => {
+          console.log(userss);
+          this.users = userss;
+        },
+        error: (error) => {
+          console.log(error);
+        },
+        complete: () => {
+          console.log('Completed');
+        },
+      });
   }
 }
 
