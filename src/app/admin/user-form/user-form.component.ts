@@ -12,8 +12,8 @@ export interface IUserForm {
 })
 export class UserFormComponent implements OnInit {
   @Output() submitted: EventEmitter<IUserForm> = new EventEmitter<IUserForm>();
-  firstName = '';
-  lastName = '';
+  firstName: string = 'c';
+  lastName: string = '';
 
   constructor() {}
 

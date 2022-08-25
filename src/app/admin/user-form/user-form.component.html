@@ -1,10 +1,13 @@
-<h3>User form</h3>
 <form (submit)="handleSubmit()">
   First Name:
-  <input name="First Name" type="text" [(ngModel)]="firstName" #refInput />
+  <input name="First Name" type="text" [(ngModel)]="firstName" />
+  {{ firstName }}
   <br /><br />
+
   Last Name:
   <input name="Last Name" type="text" [(ngModel)]="lastName" />
+
   <br /><br />
-  <button (click)="refInput.focus()">Submit</button>
+
+  <button>Submit</button>
 </form>
