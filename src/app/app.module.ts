@@ -8,6 +8,7 @@ import { UserFormComponent } from './admin/user-form/user-form.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
+import { ModelDirective } from './_shared/model.directive';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule],
@@ -16,6 +17,7 @@ import { UserService } from './services/user.service';
     AdminComponent,
     UserFormComponent,
     UserListComponent,
+    ModelDirective,
   ],
   bootstrap: [AppComponent],
 })

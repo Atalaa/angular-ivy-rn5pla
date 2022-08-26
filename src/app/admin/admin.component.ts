@@ -1,4 +1,4 @@
-import { Component, OnInit, VERSION } from '@angular/core';
+import { Component, Input, OnInit, VERSION } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { User } from '../services/user.model';
 import { UserService } from '../services/user.service';
@@ -12,6 +12,7 @@ import { IUserForm } from './user-form/user-form.component';
 export class AdminComponent implements OnInit {
   users: User[] = [];
   timer: number;
+  directiveValue = '1';
 
   constructor(private userService: UserService) {}
 
