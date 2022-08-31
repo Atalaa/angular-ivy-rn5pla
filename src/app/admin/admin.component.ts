@@ -12,7 +12,7 @@ import { IUserForm } from './user-form/user-form.component';
 export class AdminComponent implements OnInit {
   users: User[] = [];
   timer: number;
-  directiveValue = '1';
+  directiveValue = '10';
 
   constructor(private userService: UserService) {}
 

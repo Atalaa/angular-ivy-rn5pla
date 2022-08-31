@@ -1,13 +1,28 @@
 <form (submit)="handleSubmit()">
   First Name:
-  <input name="First Name" type="text" [(ngModel)]="firstName" />
+  <input
+    name="firstName"
+    type="text"
+    required
+    [(ngModel)]="firstName"
+    #firstName="ngModel"
+  />
+  <div class="red" *ngIf="firstName.touched && !firstName.valid">
+    FirstName is required
+  </div>
   {{ firstName }}
+
   <br /><br />
 
   Last Name:
-  <input name="Last Name" type="text" [(ngModel)]="lastName" />
+  <input name="lastName" type="text" required [(ngModel)]="lastName" />
 
   <br /><br />
 
-  <button>Submit</button>
+  Email:
+  <input name="email" type="text" required email [(ngModel)]="email" />
+
+  <br /><br />
+
+  <button [disabled]="">Submit</button>
 </form>

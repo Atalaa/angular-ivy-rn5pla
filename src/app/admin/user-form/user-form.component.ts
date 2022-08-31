@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 export interface IUserForm {
   firstName: string;
@@ -12,8 +13,15 @@ export interface IUserForm {
 })
 export class UserFormComponent implements OnInit {
   @Output() submitted: EventEmitter<IUserForm> = new EventEmitter<IUserForm>();
-  firstName: string = 'c';
+  firstName: string = '';
   lastName: string = '';
+  email: string = '';
+
+  form = new FormGroup({
+    first: new FormControl(),
+    last: new FormControl(),
+    email: new FormControl(),
+  });
 
   constructor() {}
 
