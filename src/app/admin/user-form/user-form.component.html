@@ -5,24 +5,55 @@
     type="text"
     required
     [(ngModel)]="firstName"
-    #firstName="ngModel"
+    #firstNameModel="ngModel"
   />
-  <div class="red" *ngIf="firstName.touched && !firstName.valid">
-    FirstName is required
-  </div>
+  {{ firstNameModel.valid }}
   {{ firstName }}
+
+  <!-- <div class="red" *ngIf="firstNameModel.touched && !firstNameModel.valid">
+    FirstName is required
+  </div> -->
 
   <br /><br />
 
   Last Name:
-  <input name="lastName" type="text" required [(ngModel)]="lastName" />
+  <input
+    name="lastName"
+    type="text"
+    required
+    [(ngModel)]="lastName"
+    #lastNameModel="ngModel"
+  />
+  <!-- <div class="red" *ngIf="lastNameModel.touched && !lastNameModel.valid">
+    LastName is required
+  </div>  -->
+
+  {{ lastNameModel.valid }}
 
   <br /><br />
 
   Email:
-  <input name="email" type="text" required email [(ngModel)]="email" />
+  <input
+    name="email"
+    type="text"
+    required
+    email
+    [(ngModel)]="email"
+    #emailModel="ngModel"
+  />
+  <!-- <div class="red" *ngIf="emailModel.touched && !emailModel.valid">
+    email is required
+  </div>  -->
+
+  {{ emailModel.valid }}
 
   <br /><br />
 
-  <button [disabled]="">Submit</button>
+  <button
+    [disabled]="
+      'firstNameModel.valid || lastNameModel.valid || emailModel.valid'
+    "
+  >
+    Submit
+  </button>
 </form>
