@@ -1,4 +1,4 @@
-<form (submit)="handleSubmit()">
+<form (submit)="handleSubmit()" #form="ngForm">
   First Name:
   <input
     name="firstName"
@@ -8,11 +8,10 @@
     #firstNameModel="ngModel"
   />
   {{ firstNameModel.valid }}
-  {{ firstName }}
 
-  <!-- <div class="red" *ngIf="firstNameModel.touched && !firstNameModel.valid">
+  <div class="red" *ngIf="firstNameModel.touched && firstNameModel.invalid">
     FirstName is required
-  </div> -->
+  </div>
 
   <br /><br />
 
@@ -24,9 +23,9 @@
     [(ngModel)]="lastName"
     #lastNameModel="ngModel"
   />
-  <!-- <div class="red" *ngIf="lastNameModel.touched && !lastNameModel.valid">
+  <div class="red" *ngIf="lastNameModel.touched && lastNameModel.invalid">
     LastName is required
-  </div>  -->
+  </div>
 
   {{ lastNameModel.valid }}
 
@@ -41,19 +40,13 @@
     [(ngModel)]="email"
     #emailModel="ngModel"
   />
-  <!-- <div class="red" *ngIf="emailModel.touched && !emailModel.valid">
+  <div class="red" *ngIf="emailModel.touched && emailModel.invalid">
     email is required
-  </div>  -->
+  </div>
 
   {{ emailModel.valid }}
 
   <br /><br />
 
-  <button
-    [disabled]="
-      'firstNameModel.valid || lastNameModel.valid || emailModel.valid'
-    "
-  >
-    Submit
-  </button>
+  <button [disabled]="form.invalid">Submit</button>
 </form>
