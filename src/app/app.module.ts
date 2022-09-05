@@ -17,10 +17,10 @@ const appRoutes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminComponent,
+    // component: AdminComponent,
 
-    // loadChildren: () =>
-    //   import('./admin/admin.module').then((module) => module.AdminModule),
+    loadChildren: () =>
+      import('./admin/admin.module').then((module) => module.AdminModule),
   },
   {
     path: 'dashboard',
@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     SharedModule,
-    AdminModule,
+    // AdminModu le,
     RouterModule.forRoot(appRoutes),
   ],
   declarations: [AppComponent, DashboardComponent, LoginComponent],

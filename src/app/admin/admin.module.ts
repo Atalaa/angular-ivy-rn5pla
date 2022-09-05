@@ -5,10 +5,20 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../_shared/shared.module';
+import { RouterModule, ROUTES } from '@angular/router';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, FormsModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    FormsModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: AdminComponent,
+      },
+    ]),
+  ],
   declarations: [AdminComponent, UserFormComponent, UserListComponent],
-  exports: [AdminComponent, UserFormComponent, UserListComponent],
 })
 export class AdminModule {}
