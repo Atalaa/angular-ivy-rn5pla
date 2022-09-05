@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
-import { UserFormComponent } from './admin/user-form/user-form.component';
-import { UserListComponent } from './admin/user-list/user-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { AdminModule } from './admin/admin.module';
 import { SharedModule } from './_shared/shared.module';
+import { AdminModule } from './admin/admin.module';
 
 const appRoutes: Routes = [
   {
@@ -37,18 +34,10 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     SharedModule,
-    RouterModule.forRoot(appRoutes),
     AdminModule,
+    RouterModule.forRoot(appRoutes),
   ],
-  declarations: [
-    AppComponent,
-    AdminComponent,
-    UserFormComponent,
-    UserListComponent,
-    DashboardComponent,
-    LoginComponent,
-  ],
-  // exports: [RouterModule],
+  declarations: [AppComponent, DashboardComponent, LoginComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
