@@ -7,10 +7,11 @@ import { AdminComponent } from './admin/admin.component';
 import { UserFormComponent } from './admin/user-form/user-form.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ModelDirective } from './_shared/model.directive';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { AdminModule } from './admin/admin.module';
+import { SharedModule } from './_shared/shared.module';
 
 const appRoutes: Routes = [
   {
@@ -20,6 +21,9 @@ const appRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+
+    // loadChildren: () =>
+    //   import('./admin/admin.module').then((module) => module.AdminModule),
   },
   {
     path: 'dashboard',
@@ -32,14 +36,15 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    SharedModule,
     RouterModule.forRoot(appRoutes),
+    AdminModule,
   ],
   declarations: [
     AppComponent,
     AdminComponent,
     UserFormComponent,
     UserListComponent,
-    ModelDirective,
     DashboardComponent,
     LoginComponent,
   ],
