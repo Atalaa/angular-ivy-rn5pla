@@ -10,35 +10,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModelDirective } from './_shared/model.directive';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
-// const appRoutes: Routes = [
-//   {
-//     path: '',
-//     redirectTo: '/admin',
-//     pathMatch: 'full',
-//     component: AdminComponent,
-//   },
-//   {
-//     path: 'admin',
-//     component: AdminComponent,
-//   },
-// ];
+const appRoutes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+  },
+];
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {
-        path: 'admin',
-        component: AdminComponent,
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent,
-      },
-    ]),
+    RouterModule.forRoot(appRoutes),
   ],
   declarations: [
     AppComponent,
@@ -47,6 +41,7 @@ import { RouterModule, Routes } from '@angular/router';
     UserListComponent,
     ModelDirective,
     DashboardComponent,
+    LoginComponent,
   ],
   // exports: [RouterModule],
   bootstrap: [AppComponent],
