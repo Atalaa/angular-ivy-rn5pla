@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../_shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, SharedModule, FormsModule],
   declarations: [AdminComponent, UserFormComponent, UserListComponent],
   exports: [AdminComponent, UserFormComponent, UserListComponent],
 })
