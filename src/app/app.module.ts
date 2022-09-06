@@ -2,13 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { AdminComponent } from './admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from './_shared/shared.module';
-import { AdminModule } from './admin/admin.module';
 
 const appRoutes: Routes = [
   {
@@ -34,7 +32,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     SharedModule,
-    // AdminModu le,
+    // AdminModule, ON CHARGE PAS LE MODULE!!! VOIR COULISSE TECH CONFERENCE
     RouterModule.forRoot(appRoutes),
   ],
   declarations: [AppComponent, DashboardComponent, LoginComponent],
