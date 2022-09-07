@@ -6,6 +6,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../_shared/shared.module';
 import { RouterModule, ROUTES } from '@angular/router';
+import { UserViewComponent } from './user-view/user-view.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,10 @@ import { RouterModule, ROUTES } from '@angular/router';
       {
         path: '',
         component: AdminComponent,
+      },
+      {
+        path: 'user/:id',
+        component: UserViewComponent,
       },
     ]),
   ],
