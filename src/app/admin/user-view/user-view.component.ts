@@ -11,7 +11,7 @@ export class   implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.paramMap.get('id'))
+    // console.log(this.route.snapshot.paramMap.get('id'))
   }
 
 }
